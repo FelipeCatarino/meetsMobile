@@ -1,24 +1,40 @@
 package com.meetsmobile.chillimugs;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+    private WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        setContentView(R.layout.activity_main); // Carrega o layout com o WebView
+
+        webView = findViewById(R.id.webview);
+        webView.setWebViewClient(new WebViewClient()); // Evita abrir no navegador externo
+
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true); // Habilita JavaScript, se necessário
+
+        // Substitua pelo endereço da sua versão web responsiva:
+        webView.loadUrl("https://meets.rf.gd/?i=1");
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Permite navegar para trás dentro do WebView
+        if (webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            super.onBackPressed();
+        }
     }
 }
+
+
+

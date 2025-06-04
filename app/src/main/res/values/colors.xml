@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primaryColor">#ff6b6b</color>
+    <color name="primaryDark">#d62e2a</color>       <!-- para status bar -->
+    <color name="secondaryColor">#ff9e9e</color>
+    <color name="textColor">#333333</color>
+    <color name="backgroundColor">#FFFFFF</color>
+    <color name="buttonColor">#ff6b6b</color>
+    <color name="buttonHoverColor">#ff5252</color>
+
 </resources>
