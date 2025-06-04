@@ -3,6 +3,10 @@ plugins {
 }
 
 android {
+
+
+
+
     namespace = "com.meetsmobile.chillimugs"
     compileSdk = 35
 
